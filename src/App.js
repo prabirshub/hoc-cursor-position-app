@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import './App.css'
+const PannelMouseLogger = ({ mousePosition }) => {
+  if (!mousePosition) {
+    return null
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='BasicTracker'>
+      <p>Mouse Position:</p>
+      <div className='Row'>
+        <span>x: {mousePosition.x}</span>
+        <span>y: {mousePosition.y}</span>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+const PointMouseLogger = ({ mousePosition }) => {
+  if (!mousePosition) {
+    return null
+  }
+  return (
+    <p>
+      ({mousePosition.x}, {mousePosition.y})
+    </p>
+  )
+}
+function App() {
+  return (
+    <div className='App'>
+      <header className='Header'>Little Lemon Restaurant 🍕</header>
+      <PannelMouseLogger />
+      <PointMouseLogger />
+    </div>
+  )
+}
+
+export default App
